@@ -7,6 +7,7 @@ import {RegisterService} from './register.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {noop} from 'rxjs';
+import {AuthFormValidators} from '../auth-form/auth-form-validators';
 
 @Component({
   selector: 'app-register',
@@ -31,9 +32,19 @@ export class RegisterComponent implements OnInit {
       key: 'password',
       value: '',
       label: 'Enter your password',
-      validators: [Validators.required],
+      validators: [
+        Validators.required,
+        Validators.minLength(8),
+        AuthFormValidators.upperCase(1),
+        AuthFormValidators.lowerCase(1),
+        AuthFormValidators.numbers(1),
+      ],
       errorMessages: {
         required: 'Password is required',
+        minlength: 'Minimum 8 characters are required',
+        uppercase: 'At least 1 uppercase character is required',
+        lowercase: 'At least 1 lowercase character is required',
+        numbers: 'At least 1 number is required',
       }
     })
   ];
