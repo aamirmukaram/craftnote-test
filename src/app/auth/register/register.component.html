@@ -1,1 +1,12 @@
-<p>register works!</p>
+<app-auth-form [form]="registerFormGroup" [formControls]="registerForm" (submitForm)="submitForm($event)">
+  <div class="title">Register</div>
+
+  <div class="footer">
+    <div class="mat-form-field-wrapper">
+      <button class="w-100" mat-flat-button color="primary" type="submit">Create account</button>
+    </div>
+    <div class="mat-form-field-wrapper">
+      <button mat-flat-button routerLink="/auth/login" color="primary" class="w-100">Already have an account?</button>
+    </div>
+  </div>
+</app-auth-form>
