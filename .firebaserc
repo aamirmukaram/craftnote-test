@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "craftnote-web-challenge": {
+      "hosting": {
+        "webapp": [
+          "craftnote-web-challenge"
+        ]
+      }
+    }
+  }
+}
