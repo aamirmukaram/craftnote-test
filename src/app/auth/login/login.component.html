@@ -1,1 +1,15 @@
-<p>login works!</p>
+<app-auth-form [form]="loginFormGroup" [formControls]="loginForm" (submitForm)="submitForm($event)">
+  <div class="title">Login</div>
+
+  <div class="footer">
+    <div class="mat-form-field-wrapper clearfix">
+      <a mat-flat-button class="pull-right">Forget password?</a>
+    </div>
+    <div class="mat-form-field-wrapper">
+      <button class="submit-btn w-100" mat-flat-button color="primary" type="submit">Login</button>
+    </div>
+    <div class="mat-form-field-wrapper">
+      <button mat-flat-button routerLink="/auth/register" color="primary" class="w-100">Not registered?</button>
+    </div>
+  </div>
+</app-auth-form>

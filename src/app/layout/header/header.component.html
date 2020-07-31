@@ -1,1 +1,17 @@
-<p>header works!</p>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="col d-flex">
+      <img class="app-logo" src="assets/images/logo.png" alt="">
+    </div>
+
+    <div class="col d-flex flex-grow-1 justify-content-end">
+      <ng-container *ngIf="auth.isAuthenticated$ | async">
+        <button mat-button>{{ auth.userEmail$ | async }}</button>
+
+        <button mat-icon-button (click)="signOut()">
+          <img src="assets/images/logout.svg" alt="">
+        </button>
+      </ng-container>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

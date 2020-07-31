@@ -1,0 +1,10 @@
+.app-container {
+  height: calc(100vh - 56px);
+  overflow: auto;
+
+  &__content {
+    &--auth {
+      padding: 10vh 0;
+    }
+  }
+}
