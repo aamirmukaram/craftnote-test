@@ -82,9 +82,7 @@ export class BarchartComponent implements AfterViewInit {
     const y = this.y;
 
     x.domain(this.data.map(d => d.name));
-    y.domain([0, d3.max(this.data, d => d.value)]);
-    console.log(this.data);
-    console.log('d3.max(this.data, d => d.value)', d3.max(this.data, d => d.value));
+    y.domain([0, d3.max(this.data, d => +d.value)]);
   }
 
   private initBarChart(): void {

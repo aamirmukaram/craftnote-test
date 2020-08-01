@@ -1,10 +1,11 @@
 <mat-toolbar>
   <mat-toolbar-row class="row">
-    <div class="col d-flex">
-      <img class="app-logo" src="assets/images/logo.png" alt="">
+    <div class="col-3 d-flex">
+      <img class="d-none d-sm-inline-block img-responsive logo" src="assets/images/logo.png" alt="">
+      <img class="d-sm-none img-responsive logo-mini" src="assets/images/logo-xs.png" alt="">
     </div>
 
-    <div class="col d-flex flex-grow-1 justify-content-end">
+    <div class="col-9 d-flex justify-content-end">
       <ng-container *ngIf="auth.isAuthenticated$ | async">
         <button mat-button>{{ auth.userEmail$ | async }}</button>
 
