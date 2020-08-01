@@ -1,6 +1,16 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  Renderer2,
+  ViewChild
+} from '@angular/core';
 import * as d3 from 'd3';
-import {debounceTime} from 'rxjs/operators';
+import {debounceTime, takeUntil} from 'rxjs/operators';
 import {Observable, Subject} from 'rxjs';
 
 export interface BarchartData {
@@ -16,9 +26,11 @@ const WINDOW_RESIZE_DEBOUNCE = 500;
   styleUrls: ['./barchart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BarchartComponent implements AfterViewInit {
+export class BarchartComponent implements AfterViewInit, OnDestroy {
   @ViewChild('svgRef')
   svgRef: ElementRef<SVGElement>;
+
+  private destroyed$: Subject<boolean> = new Subject<boolean>();
 
   private barchartData: BarchartData[];
 
@@ -64,9 +76,11 @@ export class BarchartComponent implements AfterViewInit {
     this.initDomains();
     this.drawBarChart();
 
-    this.listenResize().subscribe(() => {
-      this.drawBarChart();
-    });
+    this.listenResize()
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(() => {
+        this.drawBarChart();
+      });
     this.viewInit = true;
   }
 
@@ -145,6 +159,10 @@ export class BarchartComponent implements AfterViewInit {
       .remove();
 
     this.cdr.detectChanges();
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(true);
   }
 
 }
