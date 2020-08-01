@@ -1,0 +1,17 @@
+:host::ng-deep .barchart > svg {
+  text {
+    font-family: sans-serif;
+  }
+
+  .bar {
+    fill: #ea5b2e;
+  }
+
+  .bar:hover {
+    fill: #000000;
+  }
+
+  .axis--x path {
+    display: none;
+  }
+}

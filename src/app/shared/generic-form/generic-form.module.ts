@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
-import {AuthFormComponent} from './auth-form.component';
 import {CommonModule} from '@angular/common';
+import {GenericFormComponent} from './generic-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [AuthFormComponent],
+  declarations: [GenericFormComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule
   ],
-  exports: [AuthFormComponent]
+  exports: [GenericFormComponent]
 })
-export class AuthFormModule {
+export class GenericFormModule {
 }

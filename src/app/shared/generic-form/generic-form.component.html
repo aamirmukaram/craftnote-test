@@ -1,9 +1,9 @@
-<form [formGroup]="form" (ngSubmit)="form.valid && onFormSubmit(form)" class="auth-form mat-elevation-z4">
+<form [formGroup]="form" (ngSubmit)="form.valid && onFormSubmit(form)" #formRef>
   <h2>
     <ng-content select=".title"></ng-content>
   </h2>
 
-  <mat-form-field *ngFor="let formControl of formControls" [hideRequiredMarker]="false" color="primary" class="w-100">
+  <mat-form-field *ngFor="let formControl of formControls" color="primary" class="w-100">
     <mat-label *ngIf="formControl.label">{{ formControl.label }}</mat-label>
 
     <input *ngIf="formControl.controlType === 'textbox'"

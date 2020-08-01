@@ -5,7 +5,7 @@ import {LoginRoutingModule} from './login-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {LoginService} from './login.service';
 import {AuthService} from '../auth.service';
-import {AuthFormModule} from '../auth-form/auth-form.module';
+import {GenericFormModule} from '../../shared/generic-form/generic-form.module';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import {AuthFormModule} from '../auth-form/auth-form.module';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    AuthFormModule,
+    GenericFormModule,
     MatButtonModule
   ],
   providers: [{provide: LoginService, useExisting: AuthService}]

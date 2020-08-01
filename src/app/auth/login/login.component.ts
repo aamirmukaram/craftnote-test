@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {TextboxControl} from '../../shared/form-helpers/textbox-control';
-import {FormControlBase, FormElementType} from '../../shared/form-helpers/form-control-base';
+import {TextboxControl} from '../../shared/generic-form/form-helpers/textbox-control';
+import {FormControlBase, FormElementType} from '../../shared/generic-form/form-helpers/form-control-base';
 import {FormGroup, Validators} from '@angular/forms';
-import {toFormGroup} from '../../shared/form-helpers/to-form-group';
+import {toFormGroup} from '../../shared/generic-form/form-helpers/to-form-group';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {noop} from 'rxjs';

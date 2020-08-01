@@ -1,9 +1,9 @@
 import {FormControl} from '@angular/forms';
 
-export class AuthFormValidators {
+export class CustomValidators {
   static upperCase(totalUpperCaseRequired: number): (control: FormControl) => null | { uppercase: boolean } {
     return (control: FormControl): null | { uppercase: boolean } => {
-      const value: string = control.value;
+      const value: string = control.value || '';
 
       const totalUpperCaseChars = value
         .split('')
@@ -16,7 +16,7 @@ export class AuthFormValidators {
 
   static lowerCase(totalLowerCaseRequired: number): (control: FormControl) => null | { lowercase: boolean } {
     return (control: FormControl): null | { lowercase: boolean } => {
-      const value: string = control.value;
+      const value: string = control.value || '';
 
       const totalLowerCaseChars = value
         .split('')
@@ -29,7 +29,7 @@ export class AuthFormValidators {
 
   static numbers(totalNumberRequired: number): (control: FormControl) => null | { numbers: boolean } {
     return (control: FormControl): null | { numbers: boolean } => {
-      const value: string = control.value;
+      const value: string = control.value || '';
 
       const totalNumbers = value.replace(/[^0-9]/g, '').length;
       return totalNumbers >= totalNumberRequired || value.length === 0 ? null : {numbers: true};

@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControlBase, FormElementType} from '../../shared/form-helpers/form-control-base';
-import {TextboxControl} from '../../shared/form-helpers/textbox-control';
+import {FormControlBase, FormElementType} from '../../shared/generic-form/form-helpers/form-control-base';
+import {TextboxControl} from '../../shared/generic-form/form-helpers/textbox-control';
 import {FormGroup, Validators} from '@angular/forms';
-import {toFormGroup} from '../../shared/form-helpers/to-form-group';
+import {toFormGroup} from '../../shared/generic-form/form-helpers/to-form-group';
 import {RegisterService} from './register.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {noop} from 'rxjs';
-import {AuthFormValidators} from '../auth-form/auth-form-validators';
+import {CustomValidators} from '../../shared/generic-form/validators/custom-validators';
 
 @Component({
   selector: 'app-register',
@@ -35,9 +35,9 @@ export class RegisterComponent implements OnInit {
       validators: [
         Validators.required,
         Validators.minLength(8),
-        AuthFormValidators.upperCase(1),
-        AuthFormValidators.lowerCase(1),
-        AuthFormValidators.numbers(1),
+        CustomValidators.upperCase(1),
+        CustomValidators.lowerCase(1),
+        CustomValidators.numbers(1),
       ],
       errorMessages: {
         required: 'Password is required',

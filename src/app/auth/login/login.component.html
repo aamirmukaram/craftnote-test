@@ -1,4 +1,4 @@
-<app-auth-form [form]="loginFormGroup" [formControls]="loginForm" (submitForm)="submitForm($event)">
+<app-generic-form [form]="loginFormGroup" [formControls]="loginForm" (submitForm)="submitForm($event)">
   <div class="title">Login</div>
 
   <div class="footer">
@@ -12,4 +12,4 @@
       <button mat-flat-button routerLink="/auth/register" color="primary" class="w-100">Not registered?</button>
     </div>
   </div>
-</app-auth-form>
+</app-generic-form>
