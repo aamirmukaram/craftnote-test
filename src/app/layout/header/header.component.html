@@ -1,13 +1,12 @@
 <mat-toolbar>
   <mat-toolbar-row class="row">
-    <div class="col-3 d-flex">
-      <img class="d-none d-sm-inline-block img-responsive logo" src="assets/images/logo.png" alt="">
-      <img class="d-sm-none img-responsive logo-mini" src="assets/images/logo-xs.png" alt="">
+    <div class="col-4 col-sm-6 d-flex">
+      <div class="logo"></div>
     </div>
 
-    <div class="col-9 d-flex justify-content-end">
+    <div class="col-8 col-sm-6 d-flex justify-content-end">
       <ng-container *ngIf="auth.isAuthenticated$ | async">
-        <button mat-button>{{ auth.userEmail$ | async }}</button>
+        <button mat-button class="ellipsis">{{ auth.userEmail$ | async }}</button>
 
         <button mat-icon-button (click)="signOut()">
           <img src="assets/images/logout.svg" alt="">

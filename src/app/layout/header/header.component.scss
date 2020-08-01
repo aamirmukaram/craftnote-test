@@ -1,7 +1,13 @@
-.logo {
-  max-width: 235px;
-}
+$logoSize: 45px;
 
-.logo-mini {
-  max-width: 46px;
+.logo {
+  width: $logoSize;
+  height: $logoSize;
+  background: url('/assets/images/logo.png') -10px -75px;
+
+  @media (min-width: 576px) {
+    width: 230px;
+    height: $logoSize;
+    background: url('/assets/images/logo.png') -10px -10px;
+  }
 }

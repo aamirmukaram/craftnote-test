@@ -51,9 +51,9 @@
 }
 
 .ellipsis {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
 }
 
 .margin-auto {
